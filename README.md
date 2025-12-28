@@ -1,59 +1,20 @@
-# GifsApp
+# 03-gifs-app
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+Esta sección es muy importante porque nos dará las bases de lo que es trabajar en Angular diariamente.
 
-## Development server
+Puntualmente veremos:
 
-To start a local development server, run:
+1. LazyLoad
+2. Separación de rutas
+3. Rutas hijas
+4. Variables de entorno de Angular
+5. Angular CLI
+6. inputs
+7. Comunicación entre componentes
+8. RouterOutlets anidados
+9. Señales
+10. Propiedades de componentes
+11. Tailwind
+12. Y más
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+La idea es ir creando un pequeño dashboard administrativo para mostrar Gifs que traeremos desde un API, aunque eso es tema de la siguiente sección, aquí empezaremos a dejar las bases y la estructura del mismo.

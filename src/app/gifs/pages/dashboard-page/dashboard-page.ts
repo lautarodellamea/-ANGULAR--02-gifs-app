@@ -7,4 +7,4 @@ import { SideMenu } from '../../components/side-menu/side-menu';
   imports: [RouterOutlet, SideMenu],
   templateUrl: './dashboard-page.html',
 })
-export class DashboardPage {}
+export default class DashboardPage {}

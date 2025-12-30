@@ -35,3 +35,19 @@ Esta sección es muy interesante porque aprenderemos:
 - Y más
 
 Esta sección nos encaminará a prepararnos fuertemente en el manejo de estado de nuestra aplicación.
+
+## Tercera Sección
+
+Esta sección nos permitirá llevar nuestra aplicación al siguiente nivel, enfocándonos en optimización y mejores prácticas:
+
+- Optimización de rendimiento
+- Lazy loading de imágenes
+- Manejo de errores y estados de carga
+- Mejoras en la experiencia de usuario
+- Implementación de guards y interceptores
+- Optimización de bundle size
+- Mejoras en la accesibilidad
+- Testing de componentes
+- Y más
+
+Esta sección nos ayudará a pulir nuestra aplicación y prepararla para un entorno de producción profesional.

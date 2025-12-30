@@ -33,7 +33,19 @@ export class GifsService {
   private http = inject(HttpClient);
 
   public trendingGifs = signal<Gif[]>([]);
-  public trendingGifsLoading = signal<boolean>(true);
+  public trendingGifsLoading = signal<boolean>(false);
+  private trendingPage = signal(0);
+
+  // para usar el mansonry debemos tener los gifs en este formato
+  // [[gif1, gif2, gif3], [gif4, gif5, gif6], [gif7, gif8, gif9]]
+  public trendingGifsGroup = computed<Gif[][]>(() => {
+    const groups = [];
+    for (let i = 0; i < this.trendingGifs().length; i += 3) {
+      groups.push(this.trendingGifs().slice(i, i + 3));
+    }
+    console.log(groups);
+    return groups;
+  });
 
   public searchHistory = signal<Record<string, Gif[]>>(loadFromLocalStorage());
   // cada vez que la señal searchHistory cambia, se recalcula el computed
@@ -53,11 +65,19 @@ export class GifsService {
   });
 
   loadTrendingGifs() {
+    // esto es para tener solo un loadTrendingGifs por vez
+    // si esta en true, no se hace la peticion
+    if (this.trendingGifsLoading()) return;
+
+    // pero si esta en false, se hace la peticion
+    this.trendingGifsLoading.set(true);
+
     this.http
       .get<GiphyResponse>(`${environment.giphyApiUrl}/gifs/trending`, {
         params: {
           api_key: environment.giphyApiKey,
           limit: 20,
+          offset: this.trendingPage() * 20,
         },
       })
       // hasta que no nos suscribamos a la respuesta, no se ejecuta la petición
@@ -66,7 +86,8 @@ export class GifsService {
 
         const gifs = GifMapper.mapGiphyItemsToGifArray(resp.data);
         console.log(gifs);
-        this.trendingGifs.set(gifs);
+        this.trendingGifs.update((currentGifs) => [...currentGifs, ...gifs]); // añadimos los nuevos gifs a los gifs existentes
+        this.trendingPage.update((currentPage) => currentPage + 1); // incrementamos la pagina
         this.trendingGifsLoading.set(false);
       });
   }
